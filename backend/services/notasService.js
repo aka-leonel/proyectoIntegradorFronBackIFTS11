@@ -8,4 +8,10 @@ const notasRepository = require('../repositories/notasRepository.js')
 
 // exports.updateNotaService = ...
 
-// exports.deleteNotaService = ...
+exports.deleteNotaService = async (id) => {
+    try {
+        return await notasRepository.deleteNotaRepository(id)
+    } catch (error) {
+        console.log("Error en deleteNotaService: ", error)
+    }
+}

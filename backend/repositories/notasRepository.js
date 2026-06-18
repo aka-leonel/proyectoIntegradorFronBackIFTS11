@@ -10,4 +10,14 @@ conectarDB();
 
 // exports.updateNotaRepository = ...
 
-// exports.deleteNotaRepository = ...
+exports.deleteNotaRepository = async (id) => {
+    try {
+        const notaEncontrada = await Nota.findByIdAndDelete(id)
+        if(!notaEncontrada) {
+            return []
+        }
+        return notaEncontrada
+    } catch (error) {
+        console.log("Error en deleteNotaRepository: ", error)
+    }
+}
