@@ -4,9 +4,9 @@ Aplicación de notas para las materias Desarrollo Frontend y Desarrollo Backend 
 
 ## Prerrequisitos
 
-- Node.js
-- NPM
-- Angular (`npm i -g @angular/cli@19.2.23`)
+- Node.js (verificar con `node -v`)
+- NPM (verificar con `npm -v`)
+- Angular (instalar con `npm i -g @angular/cli@19.2.23`)
 
 ## Correr proyecto
 
@@ -15,7 +15,7 @@ Aplicación de notas para las materias Desarrollo Frontend y Desarrollo Backend 
 MONGO_URI=tu_uri
 ```
 
-2. Abrir terminal y dirigirse a la carpeta `backend`
+2. Abrir terminal y dirigirse a la carpeta `backend`:
 ```bash
 cd backend
 ```
@@ -25,22 +25,33 @@ cd backend
 npm install
 ```
 
-4. Ejecutar back (`npm run dev` para desarrollo)
-```bash
-npm start
-```
+4. Ejecutar back:
 
-5. Abrir una segunda terminal sin cerrar la anterior y dirigirse a la carpeta `frontend`
+    Para desarrollo:
+    ```bash
+    npm run dev
+    ```
+
+    Para producción:
+    ```bash
+    npm start
+    ```
+
+    - Debería decir "MongoDB conectado correctamente"
+
+5. Abrir una segunda terminal sin cerrar la anterior y dirigirse a la carpeta `frontend`:
 ```bash
 cd frontend
 ```
 
-6. Instalar dependencias
+6. Instalar dependencias:
 ```bash
 npm install
 ```
 
-7. Ejecutar front
+7. Ejecutar front:
 ```bash
-ng serve
+npm start
 ```
+
+8. Ir a `http://localhost:4200/`
