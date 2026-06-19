@@ -3,10 +3,10 @@ const notasRouter = express.Router()
 const notasController = require('../controllers/notasController.js')
 
 // GET all
-router.get('/', controller.getNotas);
+notasRouter.get('/', notasController.getNotas);
 
 // GET por id
-router.get('/:id', controller.getNota);
+notasRouter.get('/:id', notasController.getNota);
 
 // POST
 // PUT por id
