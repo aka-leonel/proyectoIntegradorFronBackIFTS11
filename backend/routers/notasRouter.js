@@ -6,6 +6,7 @@ const notasController = require('../controllers/notasController.js')
 // GET por id
 // POST
 // PUT por id
+notasRouter.put('/:id', notasController.updateNotaController)
 // DELETE por id
 
 module.exports = notasRouter

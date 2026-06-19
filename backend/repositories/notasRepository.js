@@ -9,5 +9,16 @@ conectarDB();
 // exports.createNotaRepository = ...
 
 // exports.updateNotaRepository = ...
+exports.updateNotaRepository = async (id, datos) => {
+    try {
+        const notaActualizada = await Nota.findByIdAndUpdate(id, datos, { new: true })
+        if(!notaActualizada) {
+            return []
+        }
+        return notaActualizada
+    } catch (error) {
+        console.log("Error en updateNotaRepository: ", error)
+    }
+}
 
 // exports.deleteNotaRepository = ...
