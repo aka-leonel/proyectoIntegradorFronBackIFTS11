@@ -25,6 +25,13 @@ export class NotasListComponent implements OnInit {
         });
     }
 
+    get notasFiltradas(): Nota[] {
+        if (!this.filtro) return this.notas;
+        return this.notas.filter(n =>
+            n.titulo.toLowerCase().includes(this.filtro.toLowerCase()) ||
+            n.contenido.toLowerCase().includes(this.filtro.toLowerCase())
+        );
+    }
 
     verDetalle(id: string) { this.router.navigate(['/notas', id]); }
     nuevaNota() { this.router.navigate(['/notas/nueva']); }
