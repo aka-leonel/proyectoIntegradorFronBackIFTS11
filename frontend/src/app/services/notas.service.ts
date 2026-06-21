@@ -22,6 +22,8 @@ export class NotasService {
 
   // updateNotaService
 
-  // deleteNotaService
+  public deleteNotaService(id: number | string): Observable<Nota> {
+    return this.http.delete<Nota>(`${this.apiUrl}/${id}`)
+  }
 
 }
