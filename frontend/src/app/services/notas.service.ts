@@ -14,6 +14,7 @@ export class NotasService {
   ) { }
 
   // getNotasService
+  getNotas(): Observable<Nota[]> { return this.http.get<Nota[]>(this.apiUrl); }
 
   // getNotaByIdService
 
