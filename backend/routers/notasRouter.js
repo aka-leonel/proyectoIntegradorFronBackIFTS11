@@ -2,12 +2,8 @@ const express = require('express')
 const notasRouter = express.Router()
 const notasController = require('../controllers/notasController.js')
 
-// GET all
-notasRouter.get('/', notasController.getNotas);
-
-// GET por id
-notasRouter.get('/:id', notasController.getNota);
-
+notasRouter.get('/', notasController.getNotasController);
+notasRouter.get('/:id', notasController.getNotaByIdController);
 // POST
 // PUT por id
 // DELETE por id

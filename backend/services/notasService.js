@@ -1,8 +1,22 @@
 const notasRepository = require('../repositories/notasRepository.js')
 
-// exports.getNotasService = ...
+exports.getNotasService = async () => {
+    try {
+        const notas = await notasRepository.getNotasRepository()
+        return notas
+    } catch (error) {
+        console.log('Error en getNotasService: ', error)
+    }
+}
 
-// exports.getNotaByIdService = ...
+exports.getNotaByIdService = async (id) => {
+    try {
+        const nota = await notasRepository.getNotaByIdRepository(id)
+        return nota
+    } catch (error) {
+        console.log('Error en getNotasService: ', error)
+    }
+}
 
 // exports.createNotaService = ...
 
