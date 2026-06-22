@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Nota } from '../models/nota.js';
+import { Nota } from '../models/nota';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class NotasService {
   ) { }
 
   // getNotasService
+  getNotas(): Observable<Nota[]> { return this.http.get<Nota[]>(this.apiUrl); }
 
   // getNotaByIdService
 
@@ -21,6 +22,8 @@ export class NotasService {
 
   // updateNotaService
 
-  // deleteNotaService
+  public deleteNotaService(id: number | string): Observable<Nota> {
+    return this.http.delete<Nota>(`${this.apiUrl}/${id}`)
+  }
 
 }
