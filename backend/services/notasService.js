@@ -20,7 +20,6 @@ exports.getNotaByIdService = async (id) => {
 
 // exports.createNotaService = ...
 
-// exports.updateNotaService = ...
 exports.updateNotaService = async (id, datos) => {
     try {
         return await notasRepository.updateNotaRepository(id, datos)

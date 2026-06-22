@@ -27,7 +27,6 @@ exports.getNotaByIdController = async (req, res) => {
 
 // exports.createNotaController = ...
 
-// exports.updateNotaController = ...
 exports.updateNotaController = async (req, res) => {
     try {
         const id = req.params.id
