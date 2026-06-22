@@ -32,7 +32,7 @@ exports.updateNotaController = async (req, res) => {
         const id = req.params.id
         const datos = req.body
         const nota = await notasService.updateNotaService(id, datos)
-        if(nota.length === 0) {
+        if (!nota) {
             return res.status(404).send({
                 message: "La nota a actualizar no fue encontrada"
             })
