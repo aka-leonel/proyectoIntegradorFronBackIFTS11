@@ -10,6 +10,9 @@ export const routes: Routes = [
             import('./components/notas-list/notas-list.component')
             .then(m => m.NotasListComponent)
          },
-    { path: 'notas/:id', component: NotasDetalleComponent 
+    { path: 'notas/:id',
+        loadComponent: ()=>
+            import('./components/notas-detalle/notas-detalle.component')
+        .then(m=> m.NotasDetalleComponent)
     }
 ];
