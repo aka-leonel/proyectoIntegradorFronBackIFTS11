@@ -19,7 +19,9 @@ export class NotasService {
   // getNotaByIdService
 
   // createNotaService
-
+   public createNotaService(nota: Nota): Observable<Nota> {
+    return this.http.post<Nota>(this.apiUrl, nota);
+  }
   
    public updateNotaService(id: number | string, nota: Nota): Observable<Nota> {
     return this.http.put<Nota>(`${this.apiUrl}/${id}`, nota)
