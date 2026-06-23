@@ -19,7 +19,7 @@ export class NotasListComponent implements OnInit {
     constructor(private notasService: NotasService, private router: Router) { }
 
     ngOnInit(): void {
-        this.notasService.getNotas().subscribe({
+        this.notasService.getNotasService().subscribe({
             next: (data) => this.notas = data,
             error: (err) => console.error(err)
         });
