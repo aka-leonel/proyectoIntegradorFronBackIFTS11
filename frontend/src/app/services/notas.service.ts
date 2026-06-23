@@ -13,15 +13,15 @@ export class NotasService {
     private http: HttpClient
   ) { }
 
-  // getNotasService
-  getNotas(): Observable<Nota[]> { return this.http.get<Nota[]>(this.apiUrl); }
+  getNotasService(): Observable<Nota[]> { return this.http.get<Nota[]>(this.apiUrl); }
 
-  // getNotaByIdService
+  getNotaByIdService(id: number | string): Observable<Nota> { return this.http.get<Nota>(`${this.apiUrl}/${id}`); }
 
+ 
   // createNotaService
 
-  
-   public updateNotaService(id: number | string, nota: Nota): Observable<Nota> {
+
+  public updateNotaService(id: number | string, nota: Nota): Observable<Nota> {
     return this.http.put<Nota>(`${this.apiUrl}/${id}`, nota)
   }
 
