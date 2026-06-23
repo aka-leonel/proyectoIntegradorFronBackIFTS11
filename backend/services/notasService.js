@@ -18,7 +18,14 @@ exports.getNotaByIdService = async (id) => {
     }
 }
 
-// exports.createNotaService = ...
+exports.createNotaService = async (datos) => {
+    try{
+        return await notasRepository.createNotaRepository(datos);
+    }catch(error){
+        console.log("Error en createNotaService", error);
+        throw error;
+    }
+}
 
 exports.updateNotaService = async (id, datos) => {
     try {

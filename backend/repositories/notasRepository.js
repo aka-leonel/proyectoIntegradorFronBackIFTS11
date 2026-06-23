@@ -26,7 +26,15 @@ exports.getNotaByIdRepository = async (id) => {
     }
 }
 
-// exports.createNotaRepository = ...
+exports.createNotaRepository = async (datos) => {
+    try{
+        const nuevaNota = new Nota(datos);
+        return await nuevaNota.save();
+    }catch(error){
+        console.log("Error en createNotaRepository", error);
+        throw error;
+    }
+}
 
 exports.updateNotaRepository = async (id, datos) => {
     try {
