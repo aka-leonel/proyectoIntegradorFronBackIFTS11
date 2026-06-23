@@ -20,7 +20,10 @@ export class NotasService {
 
   // createNotaService
 
-  // updateNotaService
+  
+   public updateNotaService(id: number | string, nota: Nota): Observable<Nota> {
+    return this.http.put<Nota>(`${this.apiUrl}/${id}`, nota)
+  }
 
   public deleteNotaService(id: number | string): Observable<Nota> {
     return this.http.delete<Nota>(`${this.apiUrl}/${id}`)

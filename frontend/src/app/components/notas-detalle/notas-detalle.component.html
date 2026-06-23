@@ -1,0 +1,28 @@
+<div class="container">
+
+    @if (nota) {
+    <div class="card shadow-sm mx-auto" style="max-width: 420px;">
+        <div class="card-header bg-primary text-white">
+            <span class="fw-bold fs-5">Detalle de Nota</span>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">{{ nota.titulo }}</h5>
+            <p class="card-text">{{ nota.contenido }}</p>
+            <hr>
+            <p class="text-muted small">Fecha: {{ nota.fecha | date: 'dd/MM/yyyy' }}</p>
+
+            <div class="d-flex gap-2">
+                <a class="btn btn-primary" [routerLink]="['/notas/editar', notaId]">Editar</a>
+                <button type="button" class="btn btn-danger" (click)="borrarNota()">Borrar</button>
+                <button type="button" class="btn btn-secondary" (click)="volver()">Volver</button>
+            </div>
+        </div>
+    </div>
+    }
+
+    @if (!nota) {
+    <div class="text-center text-muted py-5">Cargando...</div>
+    }
+
+</div>
