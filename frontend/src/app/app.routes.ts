@@ -5,7 +5,7 @@ import { NotasDetalleComponent } from './components/notas-detalle/notas-detalle.
 
 export const routes: Routes = [
     { path: '', redirectTo: 'notas', pathMatch: 'full'         
-    },
+    }, 
     { path: 'notas',   loadComponent: () =>
             import('./components/notas-list/notas-list.component')
             .then(m => m.NotasListComponent)

@@ -16,7 +16,7 @@ exports.getNotaByIdController = async (req, res) => {
   try {
     const id = req.params.id
     const nota = await notasService.getNotaByIdService(id);
-    if (nota.length === 0) {
+    if (!nota) {
       return res.status(404).json(
         { message: 'No se encontró la nota' }
       )

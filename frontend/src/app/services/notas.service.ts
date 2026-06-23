@@ -8,7 +8,6 @@ import { Nota } from '../models/nota';
 })
 export class NotasService {
   private apiUrl = 'http://localhost:3000/api/notas'
-
   constructor(
     private http: HttpClient
   ) { }

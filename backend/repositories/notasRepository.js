@@ -17,10 +17,7 @@ exports.getNotasRepository = async () => {
 exports.getNotaByIdRepository = async (id) => {
     try {
         const notaEncontrada = await Nota.findById(id).lean()
-        if(!notaEncontrada) {
-            return []
-        }
-        return [notaEncontrada]
+        return notaEncontrada
     } catch (error) {
         console.log('Error en getNotaByIdRepository: ', error)
     }
