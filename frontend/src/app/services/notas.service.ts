@@ -8,19 +8,22 @@ import { Nota } from '../models/nota';
 })
 export class NotasService {
   private apiUrl = 'http://localhost:3000/api/notas'
+
   constructor(
     private http: HttpClient
   ) { }
 
-  getNotasService(): Observable<Nota[]> { return this.http.get<Nota[]>(this.apiUrl); }
+  // getNotasService
+  getNotas(): Observable<Nota[]> { return this.http.get<Nota[]>(this.apiUrl); }
 
-  getNotaByIdService(id: number | string): Observable<Nota> { return this.http.get<Nota>(`${this.apiUrl}/${id}`); }
+  // getNotaByIdService
 
- 
   // createNotaService
-
-
-  public updateNotaService(id: number | string, nota: Nota): Observable<Nota> {
+   public createNotaService(nota: Nota): Observable<Nota> {
+    return this.http.post<Nota>(this.apiUrl, nota);
+  }
+  
+   public updateNotaService(id: number | string, nota: Nota): Observable<Nota> {
     return this.http.put<Nota>(`${this.apiUrl}/${id}`, nota)
   }
 

@@ -36,7 +36,20 @@ exports.getNotaByIdController = async (req, res) => {
   }
 };
 
-// exports.createNotaController = ...
+exports.createNotaController = async(req,res) => {
+  try{
+    const datos=req.body;
+    const nota=await notasService.createNotaService(datos);
+    res.status(200).send(nota);
+
+  } catch (error){
+    console.log("Error en createNotaController: ", error);
+    res.status(500).send({
+      code: 500,
+      message: "Error al crear la nota"
+    })
+  }
+}
 
 exports.updateNotaController = async (req, res) => {
   try {
