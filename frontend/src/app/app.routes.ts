@@ -14,5 +14,9 @@ export const routes: Routes = [
         loadComponent: ()=>
             import('./components/notas-detalle/notas-detalle.component')
         .then(m=> m.NotasDetalleComponent)
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];
