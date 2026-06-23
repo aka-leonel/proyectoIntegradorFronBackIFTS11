@@ -11,6 +11,7 @@ exports.getNotasRepository = async () => {
         return notasEncontradas
     } catch (error) {
         console.log('Error en getNotasRepository: ', error)
+        throw error;
     }
 }
 
@@ -23,6 +24,7 @@ exports.getNotaByIdRepository = async (id) => {
         return [notaEncontrada]
     } catch (error) {
         console.log('Error en getNotaByIdRepository: ', error)
+        throw error;
     }
 }
 
@@ -45,6 +47,7 @@ exports.updateNotaRepository = async (id, datos) => {
         return notaActualizada
     } catch (error) {
         console.log("Error en updateNotaRepository: ", error)
+        throw error;
     }
 }
 
@@ -57,5 +60,6 @@ exports.deleteNotaRepository = async (id) => {
         return notaEncontrada
     } catch (error) {
         console.log("Error en deleteNotaRepository: ", error)
+        throw error;
     }
 }

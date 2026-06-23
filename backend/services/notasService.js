@@ -6,6 +6,7 @@ exports.getNotasService = async () => {
         return notas
     } catch (error) {
         console.log('Error en getNotasService: ', error)
+        throw error;
     }
 }
 
@@ -15,6 +16,7 @@ exports.getNotaByIdService = async (id) => {
         return nota
     } catch (error) {
         console.log('Error en getNotasService: ', error)
+        throw error;
     }
 }
 
@@ -32,6 +34,7 @@ exports.updateNotaService = async (id, datos) => {
         return await notasRepository.updateNotaRepository(id, datos)
     } catch (error) {
         console.log("Error en updateNotaService: ", error)
+        throw error;
     }
 }
 
@@ -40,5 +43,6 @@ exports.deleteNotaService = async (id) => {
         return await notasRepository.deleteNotaRepository(id)
     } catch (error) {
         console.log("Error en deleteNotaService: ", error)
+        throw error;
     }
 }
