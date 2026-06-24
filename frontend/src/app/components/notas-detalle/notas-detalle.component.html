@@ -1,28 +1,25 @@
-<div class="container">
+<div class="container mt-5">
 
     @if (nota) {
-    <div class="card shadow-sm mx-auto" style="max-width: 420px;">
-        <div class="card-header bg-primary text-white">
-            <span class="fw-bold fs-5">Detalle de Nota</span>
+    <div class="card shadow-lg mx-auto w-75">
+        <div class="card-header bg-primary text-white py-3">
+            <span class="fw-bold fs-4">Detalle de Nota</span>
         </div>
-
-        <div class="card-body">
-            <h5 class="card-title">{{ nota.titulo }}</h5>
-            <p class="card-text">{{ nota.contenido }}</p>
-            <hr>
-            <p class="text-muted small">Fecha: {{ nota.fecha | date: 'dd/MM/yyyy' }}</p>
-
-            <div class="d-flex gap-2">
-                <a class="btn btn-primary" [routerLink]="['/notas/editar', notaId]">Editar</a>
-                <button type="button" class="btn btn-danger" (click)="borrarNota()">Borrar</button>
-                <button type="button" class="btn btn-secondary" (click)="volver()">Volver</button>
+        <div class="card-body p-4">
+            <h5 class="card-title fs-3 mb-4">{{ nota.titulo }}</h5>
+            <p class="card-text fs-6 mb-4">{{ nota.contenido }}</p>
+            <p class="text-muted small mb-4">Fecha: {{ nota.fecha | date: 'dd/MM/yyyy' }}</p>
+            <div class="d-flex gap-3 mt-3">
+                <a class="btn btn-primary btn-lg" [routerLink]="['/notas/editar', notaId]">Editar</a>
+                <button type="button" class="btn btn-danger btn-lg" (click)="borrarNota()">Borrar</button>
+                <button type="button" class="btn btn-secondary btn-lg" (click)="volver()">Volver</button>
             </div>
         </div>
     </div>
     }
 
     @if (!nota) {
-    <div class="text-center text-muted py-5">Cargando...</div>
+    <div class="text-center text-muted py-5 fs-4">Cargando...</div>
     }
 
 </div>

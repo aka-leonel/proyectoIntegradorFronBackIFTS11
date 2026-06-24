@@ -11,22 +11,29 @@ exports.getNotasRepository = async () => {
         return notasEncontradas
     } catch (error) {
         console.log('Error en getNotasRepository: ', error)
+        throw error;
     }
 }
 
 exports.getNotaByIdRepository = async (id) => {
     try {
         const notaEncontrada = await Nota.findById(id).lean()
-        if(!notaEncontrada) {
-            return []
-        }
-        return [notaEncontrada]
+        return notaEncontrada
     } catch (error) {
         console.log('Error en getNotaByIdRepository: ', error)
+        throw error;
     }
 }
 
-// exports.createNotaRepository = ...
+exports.createNotaRepository = async (datos) => {
+    try{
+        const nuevaNota = new Nota(datos);
+        return await nuevaNota.save();
+    }catch(error){
+        console.log("Error en createNotaRepository", error);
+        throw error;
+    }
+}
 
 exports.updateNotaRepository = async (id, datos) => {
     try {
@@ -37,6 +44,7 @@ exports.updateNotaRepository = async (id, datos) => {
         return notaActualizada
     } catch (error) {
         console.log("Error en updateNotaRepository: ", error)
+        throw error;
     }
 }
 
@@ -49,5 +57,6 @@ exports.deleteNotaRepository = async (id) => {
         return notaEncontrada
     } catch (error) {
         console.log("Error en deleteNotaRepository: ", error)
+        throw error;
     }
 }

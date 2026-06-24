@@ -1,21 +1,32 @@
-<div class='card'>
-    <div class='card-header'>
-        <span class='titulo'>Mis Notas</span>
-        <button class='btn-nueva' (click)='nuevaNota()'>+ Nueva Nota</button>
-    </div>
-
-    <div class='filter-bar'>
-        <input [(ngModel)]='filtro' placeholder='Buscar nota...' class='filter-input' />
-    </div>
-
-    <div class='lista'>
-        <div class='nota-item' *ngFor='let nota of notasFiltradas' (click)='verDetalle(nota._id!)'>
-            <strong>{{ nota.titulo }}</strong>
-            <p>{{ nota.contenido }}</p>
+<div class="container mt-4">
+    <div class="card shadow-sm mx-auto w-75">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+            <h5 class="card-title mb-0 fw-bold fs-4">Mis Notas</h5>
+            <button class="btn btn-light btn-sm" (click)="nuevaNota()">
+                <i class="bi bi-plus-circle"></i> Nueva Nota
+            </button>
         </div>
-        <div class='sin-notas' *ngIf='notasFiltradas.length === 0'>
-            No se encontraron notas.
+
+        <div class="card-body">
+            <form class="form-inline mb-3">
+                <input type="text" class="form-control" [(ngModel)]="filtro" placeholder="Buscar nota por título o contenido..."/>
+            </form>
+
+            @if (notasFiltradas.length > 0) {
+                @for (nota of notasFiltradas; track nota._id) {
+                    <div class="card mb-2 shadow-sm nota-item" (click)="verDetalle(nota._id!)" style="cursor: pointer;">
+                        <div class="card-body py-2">
+                            <h6 class="card-title fw-bold text-primary">{{ nota.titulo }}</h6>
+                            <p class="card-text text-muted small mb-0">{{ nota.contenido }}</p>
+                        </div>
+                    </div>
+                }
+            } @else {
+                <div class="text-center text-muted py-4">
+                    <i class="bi bi-inbox fs-1 d-block"></i>
+                    <p class="mt-2">No se encontraron notas.</p>
+                </div>
+            }
         </div>
     </div>
-
 </div>
