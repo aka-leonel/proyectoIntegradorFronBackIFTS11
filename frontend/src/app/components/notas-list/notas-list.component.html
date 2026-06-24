@@ -8,9 +8,9 @@
         </div>
 
         <div class="card-body">
-            <form class="form-inline mb-3">
-                <input type="text" class="form-control" [(ngModel)]="filtro" placeholder="Buscar nota por título o contenido..."/>
-            </form>
+            <div class="form-inline mb-3">
+                <input type="text" class="form-control" [(ngModel)]='filtro' placeholder="Buscar nota..."/>
+            </div>
 
             @if (notasFiltradas.length > 0) {
                 @for (nota of notasFiltradas; track nota._id) {
