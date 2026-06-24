@@ -10,6 +10,12 @@ export const routes: Routes = [
             import('./components/notas-list/notas-list.component')
             .then(m => m.NotasListComponent)
          },
+    {
+        path: 'notas/nueva',
+        loadComponent: () =>
+            import('./components/notas-form/notas-form.component')
+            .then(m => m.NotasFormComponent)
+    },     
     { path: 'notas/:id',
         loadComponent: ()=>
             import('./components/notas-detalle/notas-detalle.component')
