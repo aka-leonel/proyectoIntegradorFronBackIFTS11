@@ -27,7 +27,7 @@ esEdicion = false;
     this.notaId = this.route.snapshot.paramMap.get('id');
     if (this.notaId) {
       this.esEdicion = true;
-      this.notasService.getNotaById(this.notaId)
+      this.notasService.getNotaByIdService(this.notaId)
         .subscribe(data => this.nota = data);
     }
   }
@@ -35,10 +35,10 @@ esEdicion = false;
   guardar(): void {
     if (!this.nota.titulo || !this.nota.contenido) return;
     if (this.esEdicion && this.notaId) {
-      this.notasService.actualizarNota(this.notaId, this.nota)
+      this.notasService.updateNotaService(this.notaId, this.nota)
         .subscribe(() => this.router.navigate(['/notas']));
     } else {
-      this.notasService.crearNota(this.nota)
+      this.notasService.createNotaService(this.nota)
         .subscribe(() => this.router.navigate(['/notas']));
     }
   }
