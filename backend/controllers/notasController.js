@@ -9,10 +9,10 @@ exports.getNotasController = async (req, res) => {
       })
     }
     res.status(200).send(notas);
-  } catch (err) {
+  } catch (error) {
     res.status(500).send({
       code: 500,
-      error: 'Error en getNotasController'
+      error: 'Error al traer las notas.'
     }
     )
   }
@@ -28,21 +28,21 @@ exports.getNotaByIdController = async (req, res) => {
       )
     };
     res.status(200).send(nota);
-  } catch (err) {
+  } catch (error) {
     res.status(500).send({
       code: 500,
-      error: 'Error en getNotaByIdController'
+      error: 'Error en al traer nota.'
     });
   }
 };
 
-exports.createNotaController = async(req,res) => {
-  try{
-    const datos=req.body;
-    const nota=await notasService.createNotaService(datos);
+exports.createNotaController = async (req, res) => {
+  try {
+    const datos = req.body;
+    const nota = await notasService.createNotaService(datos);
     res.status(200).send(nota);
 
-  } catch (error){
+  } catch (error) {
     console.log("Error en createNotaController: ", error);
     res.status(500).send({
       code: 500,
