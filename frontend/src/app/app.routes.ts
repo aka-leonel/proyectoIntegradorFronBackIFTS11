@@ -15,11 +15,17 @@ export const routes: Routes = [
         loadComponent: () =>
             import('./components/notas-form/notas-form.component')
             .then(m => m.NotasFormComponent)
+    },
+    {
+        path: 'notas/editar/:id',
+        loadComponent: () =>
+            import('./components/notas-form/notas-form.component')
+            .then(m => m.NotasFormComponent)
     },     
-    { path: 'notas/:id',
+    {   path: 'notas/:id',
         loadComponent: ()=>
             import('./components/notas-detalle/notas-detalle.component')
-        .then(m=> m.NotasDetalleComponent)
+            .then(m=> m.NotasDetalleComponent)
     },
     {
         path: '**',
